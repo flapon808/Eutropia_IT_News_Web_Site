@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from Newsfeed.models import Employees
 # Create your views here.
 def home (request):
-    return HttpResponse("Hello world")
+    emp = Employees.object.all()
+    context = {
+        'emp': emp
+    }
+    return render(request, 'index.html')
