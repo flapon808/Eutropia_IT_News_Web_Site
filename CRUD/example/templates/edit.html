@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="POST" action="/update/{{employee.id}}">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+            <h3>
+                Update details
+            </h3>
+            </p>
+        </div>
+        <div>
+            <p>Employee ID</p>
+            <div>
+                <input type="text" name="eid" value={{registration.eid}}>
+            </div>
+        </div>
+        <div>
+            <p>Employee Name</p>
+            <div>
+                <input type="text" name="ename" value={{registration.ename}}>
+            </div>
+        </div>
+        <div>
+            <p>Employee Email</p>
+            <div>
+                <input type="text" name="email" value={{registration.email}}>
+            </div>
+        </div>
+        <div>
+            <p>Employee Phone</p>
+            <div>
+                <input type="text" name="ephone" value={{registration.ephone}}>
+            </div>
+        </div>
+        <div>
+            <br>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</body>
+
+</html>

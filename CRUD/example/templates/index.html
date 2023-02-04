@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action = "/emp">
+    {% csrf_token %}
+    <div>
+        <br>
+        <p>
+            <h3>Enter Details</h3>
+        </p>
+    </div>
+    <div>
+         <p>Employee ID:</p>{{form.eid}}
+    </div>
+    <div>
+        <p>Employee Name:</p>{{form.ename}}
+   </div>
+   <div>
+    <p>Employee Email:</p>{{form.email}}
+    </div>
+    <div>
+        <p>Employee Contact:</p>{{form.ephone}}
+   </div>
+   <div>
+    <br>
+    <button type = "submit"> Submit</button>
+   </div>
+
+    </form>
+
+</body>
+</html>
