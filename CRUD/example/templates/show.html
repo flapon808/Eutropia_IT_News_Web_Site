@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Records</title>
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{resistration.eid}}</td>
-                <td>{{registration.ename}}</td>
-                <td>{{registration.email}}</td>
-                <td>{{registration.ephone}}</td>
-                <td>
-                    <a href="/edit/{{registration.id}}">Edit</a>
-                    <a href="/delete/{{registration.id}}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <button><a style="color: #fffefe;" href="/emp">Add New Record</a></button>
 
+<body>
+    <form method="POST" action="/emp">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Enter Details</h3>
+            </p>
+            <div>
+                <p>Employee Id:</p>{{ form.eid }}
+            </div>
+            <div>
+                <p>Employee Name::</p>{{ form.ename }}
+            </div>
+            <div>
+                <p>Employee Email:</p>{{ form.eemail }}
+            </div>
+            <div>
+                <p>Employee contact:</p>{{ form.econtact }}
+            </div>
+            <div>
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
 </body>
+
 </html>

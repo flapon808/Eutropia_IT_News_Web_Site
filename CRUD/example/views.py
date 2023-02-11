@@ -3,7 +3,8 @@ from example.form import registrationform
 from example.models import registration
 # Create your views here.
 
-def emp(request):
+def emp(request): 
+    
     if request.method == 'POST':
         form = registrationform(request.POST)
         if form.is_valid():
@@ -19,15 +20,15 @@ def emp(request):
 
 
 def show(request):
-    employee = registration.objects.all()
-    return render(request, 'show.html', {'employee':employee})
+    employees = registration.objects.all()
+    return render(request, 'show.html', {'employees':employees})
 
 def edit(request, id):
-    employee = registration.objects.get(id =id)
+    employee = registration.objects.get(id= id)
     return render(request, 'edit.html', {'employee': employee})
 
 def update (request, id):
-    employee = registration.objects.get(id =id)
+    employee = registration.objects.get(id= id)
     form = registrationform(request.POST, instance=employee)
     if form.is_valid():
         form.save()
@@ -36,6 +37,6 @@ def update (request, id):
     return render(request, 'edit.html', {'employee': employee})
 
 def delete(request, id):
-    employee = registration.objects.get(id = id)
+    employee = registration.objects.get(id= id)
     employee.delete()
     return redirect("/show")

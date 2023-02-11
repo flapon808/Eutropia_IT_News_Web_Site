@@ -10,5 +10,5 @@ class registration(models.Model):
 def __str__ (self):
     return "%s"  %(self.ename) 
 
-class meta:
-    db_table = "employee"
+class Meta:
+    db_table = "example"
